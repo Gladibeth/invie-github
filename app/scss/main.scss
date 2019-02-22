@@ -5,3 +5,15 @@ img {
   max-width: 100%;
   vertical-align: top;
 }
+
+#responsive {
+  display: none;
+}
+@media screen and (max-width: 768px){
+  #responsive {
+    display: block;
+  }
+  img {
+    display: none;
+  }
+}
