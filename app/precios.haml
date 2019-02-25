@@ -2,20 +2,18 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Invie - tus mejores guitarras!!
+    %title Precios de tus mejores guitarras!!
     %meta{:charset => "utf-8"}/
     %link{:href => "https://fonts.googleapis.com/css?family=Montserrat:400,700|Allerta", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "assets/css/invie.css", :rel => "stylesheet"}/
     %meta{:content => "width=device-width, initial-scale=1, user-scalable=no", :name => "viewport"}/
-    / <link rel="stylesheet" media="(max-width: 800px)" href="css/media-querie.css"/>
-  %body
-    %section#portada.portada.background
-      / portada
-      %header#header.header.contenedor
-        / header
+  %body.precios
+    %header#header.header.background
+      / header
+      .contenedor
         %figure.logotipo
           / logotipo
-          %img{:alt => "Invie logotipo", :height => "60", :src => "assets/img/invie.png", :srcset => "assets/img/invie.png 1x, assets/img/invie2x.png 2x", :width => "186"}/
+          %img{:alt => "Invie logotipo", :height => "60", :src => "assets/img/invie.png", :width => "186"}/
         %span#burguer-button.burguer-button.icon-menu
         %nav#menu.menu
           / menu
@@ -23,50 +21,46 @@
             %li
               %a{:href => "index.html"} Home
             %li
-              %a{:href => "#guitarras"} Guitarras
+              %a{:href => "index.html#guitarras"} Guitarras
             %li
               %a{:href => "precios.html"} Precios
+    %section.tabla
       .contenedor
-        %h1.titulo
-          Guitarras
-          = succeed "sibles" do
-            %span invie
-        / titulo
-        %h3.title-a Sé la estrella de rock que siempre quisiste ser
-        / resumen
-        %a.button{:href => "#guitarras"} Conoce mas
-        / boton
-    %section#guitarras.guitarras.contenedor
-      / guitarras
-      %h2 Nuestra guitarras
-      / titulo
-      .video-demo-contenedor
-        .video-demo
-          .video-responsive-contenedor
-            %iframe.video-responsive-src{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/R1dW8M4EqYY", :width => "560"}
-      / <video src="video/320x240.ogg"></video>
-      %article.guitarra
-        / guitarra 1
-        %img.derecha{:alt => "Guitarra Invie Acustica", "data-src" => "assets/img/invie-acustica.png|assets/img/invie-acustica2x.png", :width => "350"}/
-        .contenedor-guitarra-a
-          %h3.title-b Invie Acustica
-          %ol
-            %li Estilo vintage
-            %li Madera pura
-            %li Incluye estuche invisible de aluminio
-      %article.guitarra.b
-        / guitarra 2
-        %img.izquierda{:alt => "Guitarra Invie Classic", "data-src" => "assets/img/invie-classic.png|assets/img/invie-classic2x.png", :width => "350"}/
-        .contenedor-guitarra-b
-          %h3.title-b Invie Classic
-          %ol
-            %li Estilo vintage
-            %li Liviana
-            %li Inicia tu camino como Rockstar
+        %table
+          %thead
+            %tr
+              %th Modelo
+              %th Precio
+              %th Descripción
+              %th Modelo
+              %th Precio
+              %th Descripción
+          %tbody
+            %tr
+              %td Invie classic
+              %td $100000
+              %td Una guitarra muy pro
+              %td Invie classic
+              %td $100000
+              %td Una guitarra muy pro
+            %tr
+              %td Invie classic
+              %td $100000
+              %td Una guitarra muy pro
+              %td Invie classic
+              %td $100000
+              %td Una guitarra muy pro
+            %tr
+              %td Invie classic
+              %td $100000
+              %td Una guitarra muy pro
+              %td Invie classic
+              %td $100000
+              %td Una guitarra muy pro
     %footer.footer
       .contenedor
         .contacto
-          %img{:alt => "logotipo blanco", "data-src" => "assets/img/invie-white.png|assets/img/invie-white2x.png"}/
+          %img{:alt => "logotipo blanco", :src => "assets/img/invie-white.png"}/
           %a{:href => "tel:+573024456678"}
             %strong Telefono
             %span 3024456678
@@ -103,7 +97,6 @@
             %label{:for => "comentarios"} Comentarios
             %textarea#comentarios{:cols => "30", :name => "comantarios", :rows => "7"}
             %input.button{:type => "submit", :value => "Enviar"}/
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.7/hammer.min.js"}
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/blazy/1.5.4/blazy.min.js"}
     :javascript
       var consulta = window.matchMedia('(max-width: 500px)');
@@ -113,12 +106,6 @@
       var $menu = document.getElementById('menu');
       function toggleMenu(){
         $menu.classList.toggle('active')
-      };
-      function showMenu(){
-        $menu.classList.add('active');
-      };
-      function hideMenu(){
-        $menu.classList.remove('active');
       };
 
       function mediaQuery() {
@@ -143,10 +130,3 @@
       // function toggleMenu(){
       //   $menu.classList.toggle('active')
       // };
-
-      // Gestos touch
-      var $body = document.body;
-
-      var gestos = new Hammer($body);
-      gestos.on('swipeleft', hideMenu);
-      gestos.on('swiperight', showMenu);
